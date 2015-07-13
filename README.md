@@ -1,2 +1,3 @@
-# google_dev_python
-Google's intensive Python course
+# Google's intensive Python course
+
+Here I am putting my answer to the excercises.
