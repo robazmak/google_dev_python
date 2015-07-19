@@ -57,11 +57,21 @@ def download_images(img_urls, dest_dir):
     with open(dest_dir + '/index.html', 'w') as html:
         html.write('<html>')
         html.write('<body>')
-        for image in sorted(os.listdir(dest_dir)):
-            html.write('<img src="' + dest_dir + '/' + image + '">')
+        for image in sorted(os.listdir(dest_dir), key=key_function):
+            html.write('<img src="' + os.path.abspath(dest_dir) +
+                       '/' + image + '">')
         html.write('</html>')
         html.write('</body>')
     webbrowser.open(dest_dir + '/index.html')
+
+
+def key_function(string):
+    if len(string) == 4:
+        return int(string[-1])
+    elif len(string) == 5:
+        return int(string[-2:])
+    else:
+        return 0
 
 
 def main():
